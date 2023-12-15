@@ -1,9 +1,9 @@
 import numpy as np
 
-from mdk.types.link_transformation import LinkTransformation
+from mdk.types.link import Link
 
 
-class RevoluteLinkTransformation(LinkTransformation):
+class RevoluteLink(Link):
 
     def __init__(
             self,
@@ -16,8 +16,8 @@ class RevoluteLinkTransformation(LinkTransformation):
         self._twist_angle = twist_angle
         self._link_offset = link_offset
 
-    def evaluate(self, joint_angle: float) -> np.ndarray:
-        return LinkTransformation._transformation(
+    def transformation(self, joint_angle: float) -> np.ndarray:
+        return Link._transformation(
             self._link_length,
             self._twist_angle,
             self._link_offset,

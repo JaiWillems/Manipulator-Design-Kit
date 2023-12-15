@@ -3,10 +3,10 @@ import abc
 import numpy as np
 
 
-class LinkTransformation(metaclass=abc.ABCMeta):
+class Link(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def evaluate(self, joint_variable: float) -> np.ndarray:
+    def transformation(self, joint_variable: float) -> np.ndarray:
         raise NotImplementedError
 
     @staticmethod
